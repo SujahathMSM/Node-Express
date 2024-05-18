@@ -15,10 +15,9 @@ app.get('/about', (req, res) => {
 
 // redirect
 
-app.get('/about-us', (req, res) => {
-    res.render('about')
+app.get('/blogs/create', (req, res) => {
+    res.render('create');
 })
-
 // 404
 
 app.use((req, res) => {
