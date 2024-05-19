@@ -5,6 +5,16 @@ app.listen(3000, () => {
   console.log("Listening on port 3000");
 });
 
+// Let demonstrate how Middleware works
+app.use((req, res, next) =>  {
+  console.log("getting a request")
+  console.log(req.url)
+  console.log(req.method)
+  next();
+})
+
+
+
 app.get("/", (req, res) => {
   const blogs = [
     {
@@ -22,6 +32,11 @@ app.get("/", (req, res) => {
   ];
   res.render("index", { title: "Home" , blogs});
 });
+
+app.use((req, res, next) => {
+  console.log("Another Middleware")
+  next();
+})
 
 app.get("/about", (req, res) => {
   res.render("about", { title: "About" });
