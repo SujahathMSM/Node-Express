@@ -1,10 +1,15 @@
 const express = require("express");
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 const app = express();
+
+const dbC = "mongodb+srv://sujahath98:yr0qWQzhJQFbxcfX@backeddb.fypsocd.mongodb.net/?retryWrites=true&w=majority&appName=BackedDB";
+mongoose.connect(dbC)
+.then(() => app.listen(3000))
+.catch((err) => console.log(err))
+
 app.set("view engine", "ejs");
-app.listen(3000, () => {
-  console.log("Listening on port 3000");
-});
+;
 
 app.use(morgan('dev'))
 
