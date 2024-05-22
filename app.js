@@ -17,6 +17,7 @@ app.set("view engine", "ejs");
 // Middleware and static files - Making a file publicly available
 app.use(morgan("dev"));
 app.use(express.static("public"));
+app.use(express.urlencoded({extended:true}));
 
 // route
 
@@ -40,6 +41,19 @@ app.get("/blogs", (req, res) => {
       console.log(err);
     });
 });
+
+// handling POST requests
+app.post("/blogs", (req, res) => {
+  // console.log(req.body)
+  const blog = new Blog(req.body);
+  blog.save()
+  .then((result) => {
+    res.redirect("/blogs")
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+})
 
 app.get("/blogs/create", (req, res) => {
   res.render("create", { title: "Create a new Blog" });
