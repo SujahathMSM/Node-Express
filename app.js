@@ -6,7 +6,7 @@ const Blog = require("./Models/blog");
 
 // Setting up DB connection
 const dbC =
-  "mongodb+srv://sujahath98:<pwd>@backeddb.fypsocd.mongodb.net/?retryWrites=true&w=majority&appName=BackedDB";
+  "mongodb+srv://sujahath98:yr0qWQzhJQFbxcfX@backeddb.fypsocd.mongodb.net/?retryWrites=true&w=majority&appName=BackedDB";
 mongoose
   .connect(dbC)
   .then(() => app.listen(3000))
