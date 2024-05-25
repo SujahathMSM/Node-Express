@@ -44,7 +44,7 @@ app.get("/blogs", (req, res) => {
 
 // handling POST requests
 app.post("/blogs", (req, res) => {
-  // console.log(req.body)
+  console.log(req.body)
   const blog = new Blog(req.body);
   blog.save()
   .then((result) => {
@@ -55,8 +55,25 @@ app.post("/blogs", (req, res) => {
   })
 })
 
+
 app.get("/blogs/create", (req, res) => {
   res.render("create", { title: "Create a new Blog" });
+});
+
+app.get('/blogs/:id', (req, res) => {
+  console.log("calling ....");
+  const id = req.params.id;
+  console.log(id);
+
+  Blog.findById(id)
+    .then((result) => {
+      console.log(result);
+      res.render('details', { blog: result, title: 'Blog Details' });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).render('404', { title: 'Blog not found' });
+    });
 });
 
 // 404
