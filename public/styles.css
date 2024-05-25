@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+back{
+  font-size: large;
+}
     body{
       max-width: 1200px;
       margin: 20px auto;
@@ -55,6 +58,16 @@
     }
 
     /* index styles */
+    .blogs-content a{
+      display: block;
+      margin: 40px 0;
+      padding-left: 30px;
+      border-left: 6px solid crimson;
+    }
+
+    .blogs-content a:hover h1{
+      color: crimson;
+    }
 
     /* details styles */
 
@@ -86,3 +99,5 @@
       font-size: 1.2em;
       cursor: pointer;
     }
+
+    
