@@ -5,11 +5,10 @@
     <%- include('./partials/nav.ejs') %>
 
     <div class="details content">
-        <h2><%= blogs.title %></h2>
+        <h2><%= blog.title %></h2>
         <div class="content">
-            <%= blogs.body %>
+            <%= blog.body %>
         </div>
-        <a class="delete" data-doc="<"<%= blogs._id %>>Delete</a>
     </div>
     <%- include('./partials/footer.ejs') %>
   </body>
